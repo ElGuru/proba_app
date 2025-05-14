@@ -1,13 +1,13 @@
+from openai import OpenAI
 import streamlit as st
-import openai
+
 st.title("Para Probabilidad y Estadística")
 st.markdown("Haz preguntas relacionadas con probabilidad y estadística")
 
-# Pedir la API Key al usuario
 api_key = st.text_input("Introduce tu OpenAI API Key:", type="password")
 
 if api_key:
-    openai.api_key = api_key  # Establece la clave para el módulo openai
+    client = OpenAI(api_key=api_key)  # así se usa desde v1.0+
 
     question = st.text_input("Escribe tu pregunta:")
 
@@ -22,7 +22,7 @@ if api_key:
 
     if question:
         with st.spinner("Generando respuesta..."):
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=[
                     {"role": "system", "content": prompt},
@@ -31,5 +31,6 @@ if api_key:
             )
             st.success("Respuesta:")
             st.markdown(response.choices[0].message.content)
+
 
 
