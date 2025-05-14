@@ -1,5 +1,5 @@
 import streamlit as st
-from openai
+import openai
 
 st.title("Para Probabilidad y Estadística")
 st.markdown("Haz preguntas relacionadas con probabilidad y estadística")
