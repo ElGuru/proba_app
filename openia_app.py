@@ -1,7 +1,7 @@
 from openai import OpenAI
 import streamlit as st
 
-st.title("Para Probabilidad y Estadística")
+st.title("AI Para Probabilidad y Estadística")
 st.markdown("Haz preguntas relacionadas con probabilidad y estadística")
 
 api_key = st.text_input("Introduce tu OpenAI API Key:", type="password")
